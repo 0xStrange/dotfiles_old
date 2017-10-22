@@ -5,10 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [[ -d ~/.bashrc.d ]]
+# Load rc scripts from ~/.bashrc.d
+if [ -d ~/.bashrc.d ]
 then
-    for file in $(/bin/ls ~/.bashrc.d/*.sh)
-    do
-        source $file;
+    for f in ~/.bashrc.d/?*.sh ; do
+        [ -x "$f" ] && source "$f"
     done
+    unset f
 fi
