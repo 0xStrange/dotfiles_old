@@ -1,0 +1,16 @@
+URxvt.foreground: gray
+URxvt.background: black
+
+URxvt*saveLines: 5000
+URxvt.font: -*-fixed-medium-r-*-*-18-*-*-*-*-*-*-*
+URxvt.boldFont: -*-fixed-bold-r-*-*-18-*-*-*-*-*-*-*
+
+URxvt*scrollBar: false
+
+URxvt.perl-lib: ENV_HOME/.config/urxvt/perl
+URxvt.perl-ext-common: default,tabbed
+
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 8
+URxvt.tabbed.tab-fg: 7
+URxvt.tabbed.tab-bg: 0

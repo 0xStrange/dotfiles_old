@@ -1,7 +1,7 @@
 BASE_DIR=$(shell pwd)
 
 .PHONY: all
-all: bash mc xorg xterm
+all: bash mc xorg xterm urxvt
 
 .PHONY: bash
 bash: ${HOME}/.bashrc ${HOME}/.bashrc.d/.keep bash.prompt
@@ -49,4 +49,13 @@ ${HOME}/.Xresources.d/.keep: ${BASE_DIR}/.Xresources.d/.keep
 xterm: xorg.xresources ${HOME}/.Xresources.d/xterm.Xresources
 
 ${HOME}/.Xresources.d/xterm.Xresources: ${BASE_DIR}/.Xresources.d/xterm.Xresources
+	install -D -m 640 $< $@
+
+.PHONY: urxvt
+urxvt: xorg.xresources ${HOME}/.Xresources.d/urxvt.Xresources ${HOME}/.config/urxvt/perl/tabbed
+
+${HOME}/.Xresources.d/urxvt.Xresources: ${BASE_DIR}/.Xresources.d/urxvt.Xresources
+	install -D -m 640 $< $@
+
+${HOME}/.config/urxvt/perl/tabbed: ${BASE_DIR}/.config/urxvt/perl/tabbed
 	install -D -m 640 $< $@
